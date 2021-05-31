@@ -1,29 +1,33 @@
-//Recup du btn
+//Recup du btn pour ajouter une tache (recup par attrubut id="")
 
 let btnAddTask = document.getElementById('btn-add-task');
 
-//Le bouton declenche un evenement
+//Le bouton declenche un evenement au click
 
 btnAddTask.addEventListener('click', (event) => {
     //On supprime le coportement pad defaut
-    //event.preventDefault();
+    event.preventDefault();
 
-    //Inout text des taches
+    //Input text des taches on recupère l'elemnt par id et sa valeur <input id="" value=""/>
     let inputTask = document.querySelector("#input-task").value;
-    //Element parent
+    //Element parent <tbody> de html <table>
+    //La méthode querySelector() de l'interface Document retourne le premier Element dans le document
+    // correspondant au sélecteur - ou groupe de sélecteurs - spécifié(s), ou null si aucune correspondance n'est trouvée.
     let tBody = document.querySelector('tbody');
-    //Creer un tr
+    //Creer un tr (table row)
     let tr = document.createElement('tr');
+    //Ajout d'une classe au <tr>
     tr.className = 'mt-3';
-    //creer un table data
+    //creer un table data <td>
     let td = document.createElement('td');
 
-    //Ajouter un btn supprimer
+    //Ajouter un btn supprimer la taches
     let btnDelete = document.createElement('button');
-    //Ajout d'une classe bootstrap
-    btnDelete.className = 'float-end btn btn-danger';
+    //Ajout d'une classe lib materialize
+    btnDelete.className = 'right-align';
+    //Ajout d'une croix dans le bouton avec createTextNode
     let btnDeleteText = document.createTextNode('\u00D7');
-    //Ajout du classe pour marerilize
+    //Ajout d'une classe materialize
     btnDelete.className = "btn-floating btn-large waves-effect waves-light red";
     //Ajout de la croix dans le bouton
     btnDelete.appendChild(btnDeleteText);
@@ -34,18 +38,21 @@ btnAddTask.addEventListener('click', (event) => {
     }else{
         //Traitement ajout de la taches
         tBody.appendChild(tr)
-        //Enfant de tr
+        //Enfant de <tr>
         tr.appendChild(td)
+        //Debug pour test
         console.log(inputTask);
         //Ajout du bouton supprimer
         td.innerHTML = inputTask;
+        //A chaque ajour de la tache on ajoute un bouton
         td.append(btnDelete);
+        //Au clcik sur le bouton supprimer on declenche du css (la ligne disparait)
         btnDelete.addEventListener('click' , () => {
             td.style.display = 'none';
         })
     }
 
-    //Recuper la valeur de l'input
+    //On vide le champs input a chaque ajout
     document.getElementById('input-task').value = '';
 
 })
