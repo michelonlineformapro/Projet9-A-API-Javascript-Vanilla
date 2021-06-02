@@ -1,9 +1,11 @@
-//Un objet literal
+//Un objet literal = un objet avec des valeurs a l'interieur de ce dernier
 let literalPersonne = {
+    //Clé / Valeur
     nom: ['MICHEL', 'Micahel'],
     age: 35,
     email: 'micpiwo@hotmail.fr',
 
+    //Fonction dans un objet
     direBonjour(){
         let literalContainer = document.getElementById('literalPersonne')
         literalContainer.innerHTML = `
@@ -14,11 +16,12 @@ let literalPersonne = {
     }
 }
 
-//Appel de notre objet :
+//Appel de notre objet et de sa fonction :
 literalPersonne.direBonjour();
 
-//on peu mofier les propriété de l'objey
+//on peu modifier les propriétées de l'objet = ici l'age
 let changeAge = literalPersonne.age = 40;
+//Test de debug
 console.log(changeAge);
 
 //On peu creer une nouvelle fonction avec cet objet
@@ -33,18 +36,21 @@ let newFunction  = () => {
         `
 }
 
+//Appel de la nouvelle fonction
 newFunction();
 
 
-//Creer des objet a la chaine et dynamique ceci evite de creer 2 objet literaux
+//Creer des objets a la chaine et dynamique -> ceci evite de creer 2 objet literaux
 let objetDynamique = document.getElementById('objetDynamique');
 
+//La fonction prend des paramètres c une fonction constructeur
 function Users(nom, age, email){
     this.nom = nom;
     this.age = age;
     this.email = email;
 
-    //Creation d'une fonction
+    //Creation d'une fonction dans une fonction
+
     this.saluer = function(){
         objetDynamique.innerHTML +=
             `
@@ -57,25 +63,26 @@ function Users(nom, age, email){
 }
 
 
-//Creation de variable et instance de objet
+//Creation de variable et instance de objet + valeur
 let utilisateur1 = new Users(['michael', 'michel'], 45, 'test@test.fr');
 
 let utilisateur2 = new Users(['michael2', 'michel2'], 41, 'test@test.fr');
 
-//Afficher les objets
+//Afficher les objets = appel de la variable + la fonction de la classe
 utilisateur1.saluer();
 //IMPOSIIBLE DE RAPELLER LA MEME METHODE
 utilisateur2.saluer();
 
-//Utiliser une classe pour reutiliser une methode
+//Utiliser une classe et reutiliser une methode
 
 class Personnage{
+    //Creation d'un constructor
     constructor(nom, age, email) {
         this.nom = nom;
         this.age = age;
         this.email = email
     }
-
+    //Creation de la fonction pour afficher des personnages
     getPersonnage(){
         let objetClasse = document.getElementById('objetClasse')
         objetClasse.innerHTML +=
@@ -87,23 +94,25 @@ class Personnage{
     }
 }
 
-//Appel de objet classe avec reutilisation de la meme methode
+//Creation de variable = instance de notre classe
 let perso1 = new Personnage(['Laurent', 'TOUVABIEN'], 78, 'laurent@tes.com');
 let perso2 = new Personnage(['Bob', 'LAGADECK'], 78, 'bob@tes.com');
 let perso3 = new Personnage(['Annie', 'FAIDUVELO'], 78, 'annie@tes.com');
 
-//On peu creer des objet et appeler le meme methode
+//A partir de la classe intancié on appel la methode de la classe
 perso1.getPersonnage();
 perso2.getPersonnage();
 perso3.getPersonnage()
 
-//Heritage
+//Heritage = ici la classe chien herite de la classe Personnage
 class Chien extends Personnage{
+    //Creation d'un constructor avec repiser des paramètres du constructeur parent + ajout d'un paramètre
     constructor(nom, age, email, race) {
+        //Recuperation du constructor parent avec super()
         super(nom, age, email);
         this.race = race;
     }
-
+    //Creation d'une methode pour afficher le chien au personnage
     setRaceChien(){
         let heritageChien = document.getElementById('heritageChien')
         heritageChien.innerHTML +=
@@ -114,6 +123,9 @@ class Chien extends Personnage{
     }
 }
 
+//Variable + insatnce de la classe chien qui herite de Personnage
+
 let perso4 = new Chien('Jojo', 78, 'chien@chien.com', 'Caniche');
+//Appel de la methode de la classe chien
 perso4.setRaceChien()
 
