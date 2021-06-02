@@ -28,7 +28,7 @@ btnAddTask.addEventListener('click', (event) => {
     //Ajout d'une croix dans le bouton avec createTextNode
     let btnDeleteText = document.createTextNode('\u00D7');
     //Ajout d'une classe materialize
-    btnDelete.className = "btn-floating btn-large waves-effect waves-light red";
+    btnDelete.className = "right-align btn-floating btn-large waves-effect waves-light red";
     //Ajout de la croix dans le bouton
     btnDelete.appendChild(btnDeleteText);
 
@@ -54,5 +54,4 @@ btnAddTask.addEventListener('click', (event) => {
 
     //On vide le champs input a chaque ajout
     document.getElementById('input-task').value = '';
-
 })

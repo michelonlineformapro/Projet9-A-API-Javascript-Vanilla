@@ -1,0 +1,41 @@
+body{
+    margin: 10px;
+    padding: 0;
+    box-sizing: content-box;
+}
+/*****************MENU*************/
+nav{
+    background-color: #f7e018!important;
+}
+
+ul li a {
+    color: #333333;
+    font-size: 20px;
+    font-weight: bold;
+    color: #24998d;
+}
+
+/*********************LISTE******************/
+.btn-floating.btn-large{
+    float: right;
+}
+
+td,th{
+    font-size: 30px;
+    color: orange;
+}
+
+/*******************QUIZZ**********************/
+.collection .collection-item{
+    font-size: 30px;
+    font-weight: bold;
+    color: orange;
+}
+.letter-reponse{
+    color: cadetblue;
+}
+
+.reponses{
+    color: coral;
+    font-size: 20px;
+}
