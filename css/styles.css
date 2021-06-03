@@ -15,6 +15,19 @@ ul li a {
     color: #24998d;
 }
 
+/********************CANVAS*****************/
+#canvas {
+    position: relative;
+    background-color: #9cbbcb;
+    margin: 1em auto;
+}
+.ball {
+    background-color: black;
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+}
+
 /*********************LISTE******************/
 .btn-floating.btn-large{
     float: right;

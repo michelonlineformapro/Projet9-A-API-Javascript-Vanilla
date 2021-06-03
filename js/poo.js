@@ -1,7 +1,7 @@
 //Un objet literal = un objet avec des valeurs a l'interieur de ce dernier
 let literalPersonne = {
     //Clé / Valeur
-    nom: ['MICHEL', 'Micahel'],
+    nom: ['MICHEL', 'Michael'],
     age: 35,
     email: 'micpiwo@hotmail.fr',
 
@@ -117,6 +117,9 @@ class Chien extends Personnage{
         let heritageChien = document.getElementById('heritageChien')
         heritageChien.innerHTML +=
             `
+                <p>Une classe nom = ${this.nom[0]} et le prenom ${this.nom[1]}</p>
+                <p>Tu as : ${this.age} ans</p>
+                <p>Et ton email est : ${this.email}</p> 
                 <p>Race du chien =  ${this.race}</p>
             `
 
