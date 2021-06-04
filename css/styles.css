@@ -16,10 +16,17 @@ ul li a {
 }
 
 /********************CANVAS*****************/
+#canvas-parent{
+    max-width: 100%;
+    height: 100vh;
+}
+
 #canvas {
     position: relative;
     background-color: #9cbbcb;
     margin: 1em auto;
+    max-width: 100%;
+    height: 100%;
 }
 .ball {
     background-color: black;
@@ -51,4 +58,18 @@ td,th{
 .reponses{
     color: coral;
     font-size: 20px;
+}
+/**************************REGEX******************************/
+.vert{
+    color: white;
+    font-size: 24px;
+    background-color: #24998d;
+    padding: 10px;
+}
+
+.rouge{
+    color: white;
+    font-size: 24px;
+    background-color: brown;
+    padding: 10px;
 }

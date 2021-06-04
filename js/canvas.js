@@ -4,6 +4,7 @@
 let canvas = {
     //Recup de id de la div = HTML
     element: document.getElementById('canvas'),
+
     //Largeur et hauteur du canvas
     width: 1024,
     height: 768,
@@ -122,5 +123,14 @@ ball5.dessinerBalle(30, 150);
 ball6.dessinerBalle(250, 120);
 
 //Balle de test
-ball7.dessinerBalle(10,10)
+ball7.dessinerBalle(10,10);
+
+window.addEventListener("resize", function(){
+    canvas.outerHeight = window.innerHeight - canvas.offsetTop - Math.abs(canvas.outerHeight - canvas.outerHeight);
+    canvas.outerWidth = window.innerWidth - canvas.offsetLeft - Math.abs(canvas.outerWidth - canvas.outerWidth);
+    console.log('ok resize')
+
+});
+
+
 
