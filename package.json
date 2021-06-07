@@ -1,0 +1,11 @@
+{
+  "name": "exojs",
+  "version": "1.0.0",
+  "description": "Divers test js et api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Michel Michael",
+  "license": "ISC"
+}

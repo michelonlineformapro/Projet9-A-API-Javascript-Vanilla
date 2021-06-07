@@ -94,6 +94,8 @@ class Personnage{
     }
 }
 
+
+
 //Creation de variable = instance de notre classe
 let perso1 = new Personnage(['Laurent', 'TOUVABIEN'], 78, 'laurent@tes.com');
 let perso2 = new Personnage(['Bob', 'LAGADECK'], 78, 'bob@tes.com');
