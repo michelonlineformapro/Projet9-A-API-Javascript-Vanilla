@@ -50,9 +50,9 @@ td,th{
 
 /*******************QUIZZ**********************/
 .collection .collection-item{
-    font-size: 30px;
+    font-size: 16px;
     font-weight: bold;
-    color: orange;
+    color: #999999;
 }
 .letter-reponse{
     color: cadetblue;

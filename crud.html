@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD AJAX</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="orange-text bg-danger p-3 mt-3 text-center">LISTE DES PRODUITS</h1>
+    <!--LISTE DES ETAPES-->
+    <ul class="collection">
+      <li class="collection-item">
+        Installer Jsonserver : npm install -g json-server
+      </li>
+      <li class="collection-item">
+        Dans un terminal dans votre dossier : json-server --watch db.json
+      </li>
+      <li class="collection-item">
+        Modifier les données du fichier db.json
+      </li>
+      <li class="collection-item">Lancer le server : localhost:3000/produits </li>
+    </ul>
+    <!--ICI ON AFFCIHE LE CONTENU DU FICHIER DB.JSON-->
+      <div id="produits" class="row">
+
+      </div>
+    <!--FIN DU CONTENEUR DE PRODUIT-->
+  </div>
+
+<script src="js/crud.js"></script>
+</body>
+</html>

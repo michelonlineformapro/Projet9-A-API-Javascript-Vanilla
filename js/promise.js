@@ -1,35 +1,35 @@
 const promesse = new Promise((resolve, reject) => {
-
+    //Tache asyncrone a realisé
+    //Soit resolve + soit reject
+    //Le promesse sont en genearl deja fournie par API
 })
 
-
-
-//Fonction de chargement d'un script
+//Fonction de chatgement du script avec un paramètre = nom du fichier
 function loadScript(src){
+    //retourne une promesse soit OK ou ECHEC
     return new Promise((resolve, reject) => {
         //On creer element script
         let script = document.createElement('script');
-        //Ajouter attribut source
+        //Ajout de attribut src
         script.src = src;
-        //ajout de la balise dans le body
+        //On ajoute a la balise head
         document.body.append(script);
-
-        //Si la prommesse est tenue
-        script.onload = () =>resolve('Fichier ' + src + ' à bien été chargé');
-        //Sinon rejet de la promesse
-        script.onload = () => reject(new Error('Echec du chragement du ' + src))
+        //si ca marche
+        script.onload = () => resolve('Fichier ' + src + ' à bien été chargé');
+        //Sinon erreur
+        script.onerror = () => reject(new Error('Echec de chargement de ' + src));
     })
 }
 
-const promesse1 = loadScript('js/test.js');
-console.log(promesse1)
-const promesse2 = promesse1.then(result => alert(result), error => alert(error))
-console.log(promesse2);
+const promess1 = loadScript('js/api.js')
+console.log(promess1)
+const promesse2 = promess1.then(result => alert(result), error => alert(error))
 
-//Ajout de async et await
+//Ajout async et await
 async function test(){
-    const const1 = await loadScript('js/api.js')
-    alert(const1)
+    //Ici test n'existe pas
+    const cont1 = await loadScript('js/test.js');
+    //const cont1 = await loadScript('js/block.js');
+    alert(cont1)
 }
-
 test()
