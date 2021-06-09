@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     //Declenche un evenement au click sur le bouton valider du formulaire ajouter
     produitForm.addEventListener('submit', ajouterProduit);
 
+
+
     //Methode fetch + url + methode GET + options
     fetch('http://localhost:3000/produits',{
         method:"GET",
@@ -43,10 +45,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                   <div class="card s3">
                     <div class="card-image">
                     <!--IMAGE = parametre produit de la fonction ajouterProduit(produit) + nom de element a afficher de notre db.json (ici imageProduit)-->
-                      <img src="${produit.imageProduit}" width="25%">
-                      <span class="card-title">${produit.nomProduit}</span>
+                      <img src="${produit.imageProduit}" width="25%" alt="${produit.nomProduit}" title="${produit.nomProduit}">
+                      
                     </div>
                     <div class="card-content">
+                        <span class="card-title red-text">${produit.nomProduit}</span>
                       <p>${produit.descriptionProduit}</p>
                     </div>
                     <div class="card-action">
@@ -56,8 +59,40 @@ document.addEventListener('DOMContentLoaded', () =>{
               
             `
         //Ajout de la div creer comme enfant de notre conteneur HTML produits
-       produits.appendChild(produitDIV)
+       produits.appendChild(produitDIV);
 
+
+        /*********************************************************************************************************/
+        //AJOUTER un bouton supprimer
+        const btnDelete = document.createElement("button");
+        //Ajouter un id unique a chaque bouton => qui match avec chaque carte
+        btnDelete.setAttribute("id", `btnDelete${produit.id}`);
+        //Ajout de texte au bouton + nom du produit
+        btnDelete.innerHTML = `Supprimer :  ${produit.nomProduit}`;
+        //Ajout de classe css materialize
+        btnDelete.className = "col s4 waves-effect waves-light btn orange";
+        //Ajout du bonton a chaque carte
+        produitDIV.appendChild(btnDelete);
+        //Au click sur le bouton on declenche une fonction avec un paramtre pour id
+        btnDelete.addEventListener('click', () => deleteProduit(produit));
+
+        /**********************************SUPPRIMER UN PRODUIT***********************************************************************/
+        function deleteProduit(produit){
+            //recuperer id de chaque carte
+            const cardProduit = document.querySelector(`#card-produit${produit.id}`)
+            //Test de debug pour visualiser id de chaque carte
+            console.log(cardProduit);
+            //Requète HTTP fetch avec URL + id methode delete
+            return fetch(`http://localhost:3000/produits/${produit.id}`,{
+                method: 'DELETE'
+            })
+                //On recupère le json
+                .then(response => response.json())
+                //On supprimer toute la carte
+                .then(() => {
+                    cardProduit.remove()
+                })
+        }
     }
 
     //Recupéré les données du formulaire
@@ -71,10 +106,19 @@ document.addEventListener('DOMContentLoaded', () =>{
          */
         event.preventDefault();
         return{
-            nomProduit: `${event.target.nomProduit.value}`,
+            nomProduit: `${event.currentTarget.nomProduit.value}`,
             descriptionProduit: `${event.target.descriptionProduit.value}`,
             prixProduit: `${event.target.prixProduit.value}`,
             imageProduit: `${event.target.imageProduit.value}`,
+        }
+    }
+
+    function resetForm(){
+        return{
+            nomProduit: this.value = '',
+            descriptionProduit: this.value = '',
+            prixProduit: this.value = '',
+            imageProduit: this.value = '',
         }
     }
 
