@@ -1,18 +1,13 @@
 //Charger le DOM
 document.addEventListener('DOMContentLoaded', () =>{
-    //Conteneur de produit
+    //Conteneur de produit id HTML
     const produits = document.querySelector('#produits');
     //Recuperer id du formulaire + submit sur le bouton
-    /*
-    L’événement submit est émis lorsqu’un formulaire est soumis au serveur.
-
-    Notez que l’événement submit se déclenche uniquement sur l’élement form, et pas sur les éléments button ou input submit. (Les formulaires sont soumis, pas les boutons.)
-     */
     const produitForm = document.querySelector('#ajouter-produit-form');
     //Declenche un evenement au click sur le bouton valider du formulaire ajouter
     produitForm.addEventListener('submit', ajouterProduit);
 
-
+    /********************************** METHODE GET JSON LOCALHOST:3000 ****************************/
 
     //Methode fetch + url + methode GET + options
     fetch('http://localhost:3000/produits',{
@@ -29,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         //Boucle de lecture (le conteneur + nom de la collection) + appel de la fonction ajouterProduit
         .then(produits  => produits.forEach(afficherProduit))
 
+    /**************************************AFFICHER LES CARTES DE PRODUIT*************************/
     //Fonction ajouter produit
     function afficherProduit(produit){
         //Creer une div
@@ -53,16 +49,14 @@ document.addEventListener('DOMContentLoaded', () =>{
                       <p>${produit.descriptionProduit}</p>
                     </div>
                     <div class="card-action">
-                      <a href="#">Plus d'infos</a>
+                      <p>Prix : ${produit.prixProduit} €</p>
                     </div>
-                  </div>
-              
-            `
+                  </div>`
+        /*****************************AJOUTER LES CARTES DE PRODUIT********************************/
         //Ajout de la div creer comme enfant de notre conteneur HTML produits
        produits.appendChild(produitDIV);
 
-
-        /*********************************************************************************************************/
+        /*****************************************BOUTON SUPPRIMER****************************************************************/
         //AJOUTER un bouton supprimer
         const btnDelete = document.createElement("button");
         //Ajouter un id unique a chaque bouton => qui match avec chaque carte
@@ -76,7 +70,73 @@ document.addEventListener('DOMContentLoaded', () =>{
         //Au click sur le bouton on declenche une fonction avec un paramtre pour id
         btnDelete.addEventListener('click', () => deleteProduit(produit));
 
-        /**********************************SUPPRIMER UN PRODUIT***********************************************************************/
+        /***********************************BOUTON DETAILS PRODUIT*************************************************/
+        //Bouton details
+        const btnDetails = document.createElement('button');
+        //Ajouter un attribut ID
+        btnDetails.setAttribute("id", `${produit.id}`);
+        //texte + id a afficher dans le bouton
+        btnDetails.innerHTML = 'Details : ' + produit.id;
+        //Ajout classe css Materialize sur le bouton
+        btnDetails.className = "col s4 waves-effect waves-light btn purple lighten-3";
+        //Ajouter le bouton en tant qu'enfant de la div produitDIV(carte)
+        produitDIV.appendChild(btnDetails);
+        //Decelncher une fonction au click
+        btnDetails.addEventListener('click', () => detailsProduit(produit))
+
+        /*********************************FONCTION DETAIL PRODUIT************************************/
+        function detailsProduit(produit){
+            //Chaque carte a un id unique id=""card-produit 1 2 3 4 etc..
+            const cardProduit = document.querySelector(`#card-produit${produit.id}`);
+            //Debug de test
+            console.log(cardProduit)
+            //Requète HTTP GET + /:id dynamique
+            return fetch(`http://localhost:3000/produits/${produit.id}`,{
+                method:"GET",
+                headers:{
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                },
+            })
+                .then(response => response.json())
+                //Appel de la methode afficher les produits ci-dessous
+                .then(produit => afficherDetailsProduit(produit))
+        }
+        /***********************************AFFICHER LES DETAILS DU PRODUIT***********************/
+        function afficherDetailsProduit(produit){
+            //Conteneur de details du produit HTML
+            const detailsContainer = document.querySelector("#detailsProduit");
+            //Debug
+            console.log(detailsContainer);
+            //Animation aves le methode animate() js + css
+            produits.animate([
+                //Propriété css 1 = depart + 2 = arrivée de 0 a -300px
+                { transform: "translateX(0px)"},
+                { transform: "translateX(-300px)"}
+            ],{
+                //Temps de la transition en 1 et 2 (de 0 a -300px en 0.5secondes)
+                duration: 200,
+            });
+            //Au bout de 0.25 seconde le conteneur de carte pricipale disparait (apres la transition)
+            setTimeout(() => {
+                //Propriété css display: none
+                produits.style.display = "none"
+            }, 200)
+            //Valeur des details du produits
+            detailsContainer.innerHTML = `
+                <div class="conatainer s12">
+                    <h3 class="green-text lighten-2">DÉTAILS DU PRODUIT</h3>
+                    <h4 class="orange-text lighten-2">${produit.nomProduit}</h4>
+                    <p><img src="${produit.imageProduit}" width="25%" alt="${produit.nomProduit}" title="${produit.nomProduit}"></p>
+                    <p>Description :</p>
+                    <p>${produit.descriptionProduit}</p>
+                    <p>Prix : ${produit.prixProduit} €</p>
+                    <button class="col s4 waves-effect waves-light btn red lighten-3" onClick="window.location.reload();">Retour</button>
+                </div>
+            `
+        }
+
+        /**********************************FONCTION SUPPRIMER UN PRODUIT***********************************************************************/
         function deleteProduit(produit){
             //recuperer id de chaque carte
             const cardProduit = document.querySelector(`#card-produit${produit.id}`)
@@ -94,6 +154,10 @@ document.addEventListener('DOMContentLoaded', () =>{
                 })
         }
     }
+
+    /*********************************************FONCTION DETAILS DU PRODUIT*********************************/
+
+    /*********************************LES DONNEES DU FORMULAIRE**************************************/
 
     //Recupéré les données du formulaire
     //Recuperation des valeurs input name des champ du formulaire comme $_POST[''] en php
@@ -113,15 +177,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
     }
 
-    function resetForm(){
-        return{
-            nomProduit: this.value = '',
-            descriptionProduit: this.value = '',
-            prixProduit: this.value = '',
-            imageProduit: this.value = '',
-        }
-    }
-
+    /*********************************AJOUTER UN PRODUIT DEPUIS LE FORMULAIRE HTML******************************/
 
    //Fonction ajouter un produit
    function ajouterProduit(event){

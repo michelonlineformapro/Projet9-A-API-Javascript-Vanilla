@@ -3,16 +3,44 @@
     {
       "nomProduit": "Livre javascript",
       "descriptionProduit": "JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web.",
-      "prixproduit": 12.5,
+      "prixProduit": 12.5,
       "imageProduit": "https://static.fnac-static.com/multimedia/Images/FR/NR/0d/4a/99/10045965/1507-1/tsp20181225081034/Tout-Javascript.jpg",
       "id": 1
     },
     {
       "nomProduit": "Livre Php",
       "descriptionProduit": "PHP: Hypertext Preprocessor, plus connu sous son sigle PHP, est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP.",
-      "prixproduit": 45458.25,
+      "prixProduit": 45458.25,
       "imageProduit": "https://m.media-amazon.com/images/I/319uThTlOSL.jpg",
       "id": 2
+    },
+    {
+      "nomProduit": "Live JAVA",
+      "descriptionProduit": "Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le soutien de Bill Joy.",
+      "prixProduit": "35.25",
+      "imageProduit": "https://images-na.ssl-images-amazon.com/images/I/71CFqz6py8L.jpg",
+      "id": 3
+    },
+    {
+      "nomProduit": "Live C++",
+      "descriptionProduit": "C++ est un langage de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.",
+      "prixProduit": "458.35",
+      "imageProduit": "https://m.media-amazon.com/images/I/41ZLbV2oqHL.jpg",
+      "id": 4
+    },
+    {
+      "nomProduit": "Live Python",
+      "descriptionProduit": "Python est un langage de programmation interprété, multi-paradigme et multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle et orientée objet.",
+      "prixProduit": "142.35",
+      "imageProduit": "https://www.dunod.com/sites/default/files/styles/principal_desktop/public/thumbnails/image/9782100804832-001-X.jpeg",
+      "id": 5
+    },
+    {
+      "nomProduit": "Livre JAVA EE",
+      "descriptionProduit": "Java SE Jakarta EE Java ME JavaFX Java Card Jakarta EE, est une spécification pour la plate-forme Java d'Oracle, destinée aux applications d'entreprise.",
+      "prixProduit": "653.52",
+      "imageProduit": "https://images-na.ssl-images-amazon.com/images/I/51vifBnNFzL.jpg",
+      "id": 6
     }
   ]
 }

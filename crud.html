@@ -14,7 +14,7 @@
 <img src="img/banner.png" width="100%" >
   <div class="container">
 
-    <h1 class="orange-text bg-danger p-3 mt-3 text-center">LISTE DES PRODUITS</h1>
+    <h1 class="orange-text bg-danger p-3 mt-3 text-center">LES ÉTAPES</h1>
     <!--LISTE DES ETAPES-->
     <ul class="collection">
       <li class="collection-item">
@@ -52,15 +52,22 @@
       </div>
 
       <div class="form-group">
-        <input class="btn btn-outline-info" value="Ajouter" type="submit">
-        <input type="reset" value="vider les champs" class="btn waves-effect waves-light">
+        <input class="col s4 waves-effect waves-light btn orange lighten-2" value="Ajouter" type="submit">
+        <input type="reset" value="vider les champs" class="col s4 waves-effect waves-light btn purple lighten-2">
       </div>
     </form>
     <!--ICI ON AFFCIHE LE CONTENU DU FICHIER DB.JSON-->
       <div id="produits" class="row">
-
+        <h3 class="red-text lighten-2">NOS PRODUITS</h3>
       </div>
     <!--FIN DU CONTENEUR DE PRODUIT-->
+
+    <!--DEBUT DU CONTENEUR DE DETAILS PRODUIT-->
+
+    <div id="detailsProduit"></div>
+    <!--FIN DU CONTENEUR DE DETAILS PRODUIT-->
+
+
   </div>
 
 <script src="js/crud.js"></script>
