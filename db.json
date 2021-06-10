@@ -8,28 +8,14 @@
       "id": 1
     },
     {
-      "nomProduit": "Livre Php",
+      "nomProduit": "Livre PHP",
       "descriptionProduit": "PHP: Hypertext Preprocessor, plus connu sous son sigle PHP, est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP.",
-      "prixProduit": 45458.25,
+      "prixProduit": "45458.25",
       "imageProduit": "https://m.media-amazon.com/images/I/319uThTlOSL.jpg",
       "id": 2
     },
     {
-      "nomProduit": "Live JAVA",
-      "descriptionProduit": "Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le soutien de Bill Joy.",
-      "prixProduit": "35.25",
-      "imageProduit": "https://images-na.ssl-images-amazon.com/images/I/71CFqz6py8L.jpg",
-      "id": 3
-    },
-    {
-      "nomProduit": "Live C++",
-      "descriptionProduit": "C++ est un langage de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.",
-      "prixProduit": "458.35",
-      "imageProduit": "https://m.media-amazon.com/images/I/41ZLbV2oqHL.jpg",
-      "id": 4
-    },
-    {
-      "nomProduit": "Live Python",
+      "nomProduit": "Livre Python",
       "descriptionProduit": "Python est un langage de programmation interprété, multi-paradigme et multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle et orientée objet.",
       "prixProduit": "142.35",
       "imageProduit": "https://www.dunod.com/sites/default/files/styles/principal_desktop/public/thumbnails/image/9782100804832-001-X.jpeg",
