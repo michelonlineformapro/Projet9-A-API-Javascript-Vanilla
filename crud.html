@@ -11,70 +11,80 @@
 </head>
 
 <body>
-<img src="img/banner.png" width="100%" >
+
   <div class="container">
+    <div class="row">
+      <div id="right-content" class="col s12">
+        <img src="img/banner.png" width="100%" >
+        <h1 class="orange-text lighten-1 bg-danger p-3 mt-3 text-center card-panel  light-blue darken-3">LES ÉTAPES</h1>
+        <!--LISTE DES ETAPES-->
+        <ul class="collection">
+          <li class="collection-item">
+            Installer Jsonserver : npm install -g json-server
+          </li>
+          <li class="collection-item">
+            Dans un terminal dans votre dossier : json-server --watch db.json
+          </li>
+          <li class="collection-item">
+            Modifier les données du fichier db.json
+          </li>
+          <li class="collection-item">Lancer le server : localhost:3000/produits </li>
+          <li class="collection-item">
+            Pour stoper le port 3000: npx kill-port 3000
+          </li>
+        </ul>
 
-    <h1 class="orange-text bg-danger p-3 mt-3 text-center">LES ÉTAPES</h1>
-    <!--LISTE DES ETAPES-->
-    <ul class="collection">
-      <li class="collection-item">
-        Installer Jsonserver : npm install -g json-server
-      </li>
-      <li class="collection-item">
-        Dans un terminal dans votre dossier : json-server --watch db.json
-      </li>
-      <li class="collection-item">
-        Modifier les données du fichier db.json
-      </li>
-      <li class="collection-item">Lancer le server : localhost:3000/produits </li>
-    </ul>
+        <form id="ajouter-produit-form">
 
-    <form id="ajouter-produit-form">
+          <h3 class="orange-text lighten-1 card-panel light-blue darken-3">Ajouter un produit</h3>
+          <div class="form-group">
+            <label>Nom du produit</label>
+            <input class="form-control" type="text" name="nomProduit">
+          </div>
 
-      <h3 class="red-text">Ajouter un produit</h3>
-      <div class="form-group">
-        <label>Nom du produit</label>
-        <input class="form-control" type="text" name="nomProduit">
+          <div class="form-group">
+            <label>Description du produit</label>
+            <input class="form-control" type="text" name="descriptionProduit">
+          </div>
+
+          <div class="form-group">
+            <label>Prix du produit</label>
+            <input class="form-control" type="text" name="prixProduit">
+          </div>
+
+          <div class="form-group">
+            <label>Image du produit</label>
+            <input class="form-control" type="text" name="imageProduit">
+          </div>
+
+          <div class="form-group">
+            <input class="col s6 waves-effect waves-light btn orange lighten-2" value="Ajouter" type="submit">
+            <input type="reset" value="vider les champs" class="col s6 waves-effect waves-light btn purple lighten-2">
+          </div>
+        </form>
+        <br />
+
+        <div id="updateForm" class="container"></div>
+
+
+        <br />
+        <!--ICI ON AFFCIHE LE CONTENU DU FICHIER DB.JSON-->
+        <div id="produits" class="s12">
+          <h3 class="orange-text lighten-1 card-panel light-blue darken-3">Liste des produits</h3>
+        </div>
+        <!--FIN DU CONTENEUR DE PRODUIT-->
+
+        <!--DEBUT DU CONTENEUR DE DETAILS PRODUIT-->
+
+        <div id="detailsProduit"></div>
+        <!--FIN DU CONTENEUR DE DETAILS PRODUIT-->
       </div>
-
-      <div class="form-group">
-        <label>Description du produit</label>
-        <input class="form-control" type="text" name="descriptionProduit">
-      </div>
-
-      <div class="form-group">
-        <label>Prix du produit</label>
-        <input class="form-control" type="text" name="prixProduit">
-      </div>
-
-      <div class="form-group">
-        <label>Image du produit</label>
-        <input class="form-control" type="text" name="imageProduit">
-      </div>
-
-      <div class="form-group">
-        <input class="col s4 waves-effect waves-light btn orange lighten-2" value="Ajouter" type="submit">
-        <input type="reset" value="vider les champs" class="col s4 waves-effect waves-light btn purple lighten-2">
-      </div>
-    </form>
-
-    <div id="updateForm"></div>
-
-
-    <!--ICI ON AFFCIHE LE CONTENU DU FICHIER DB.JSON-->
-      <div id="produits" class="row">
-        <h3 class="red-text lighten-2">NOS PRODUITS</h3>
-      </div>
-    <!--FIN DU CONTENEUR DE PRODUIT-->
-
-    <!--DEBUT DU CONTENEUR DE DETAILS PRODUIT-->
-
-    <div id="detailsProduit"></div>
-    <!--FIN DU CONTENEUR DE DETAILS PRODUIT-->
-
+    </div>
 
   </div>
 
 <script src="js/crud.js"></script>
+
+
 </body>
 </html>

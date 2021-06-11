@@ -3,6 +3,14 @@ body{
     padding: 0;
     box-sizing: content-box;
 }
+/**************SIDENAV*****************/
+#sidenav-left{
+    height: 100vh;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+}
+
 /*****************MENU*************/
 nav{
     background-color: #f7e018!important;
@@ -13,6 +21,9 @@ ul li a {
     font-size: 20px;
     font-weight: bold;
     color: #24998d;
+}
+ul li a:hover {
+    color: brown;
 }
 .collection{
     font-size: 16px;
